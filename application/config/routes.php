@@ -44,28 +44,28 @@ $route['404_override'] = '';
 
 
 //JSON Data
-$route['json/users'] = "Main/allUsers";     //All Users in JSON format
+$route['json/users'] = "main/allUsers";     //All Users in JSON format
 
-// $route['json/trips/(:num)'] = "Main/tripById/$1";   //Trips By User ID
-$route['json/trips/(:any)'] = "Main/tripByName/$1"; //Trips By User name
-$route['json/trips'] = "Main/allTrips";     //All Trips in JSON format
+// $route['json/trips/(:num)'] = "main/tripById/$1";   //Trips By User ID
+$route['json/trips/(:any)'] = "main/tripByName/$1"; //Trips By User name
+$route['json/trips'] = "main/allTrips";     //All Trips in JSON format
 
-$route['json/trip/(:num)'] = "Main/tripByTId/$1";   //Gets trip by trip id
-$route['json/trip'] = "Main/allTrips";      //All Trips in JSON format
+$route['json/trip/(:num)'] = "main/tripByTId/$1";   //Gets trip by trip id
+$route['json/trip'] = "main/allTrips";      //All Trips in JSON format
 
 
 //Database Manipulation
-$route['addUser'] = "Main/addUser";         //Add users to the database
-$route['addTrips'] = "Main/addTripsByUserName";       //Add trips to the database
-$route['jank/addTrips/(:any)/(:any)/(:any)/(:any)/(:num)'] = "Main/jankAddTrips/$1/$2/$3/$4/$5";       //Add trips to the database
+$route['addUser'] = "main/addUser";         //Add users to the database
+$route['addTrips'] = "main/addTripsByUserName";       //Add trips to the database
+$route['jank/addTrips/(:any)/(:any)/(:any)/(:any)/(:num)'] = "main/jankAddTrips/$1/$2/$3/$4/$5";       //Add trips to the database
 
 
 //Check Logic
-$route['checkLogin'] = "Main/checkLogin";   //Checks the username to database
+$route['checkLogin'] = "main/checkLogin";   //Checks the username to database
 
 
 //logoff
-$route['logoff'] = "Main/logoff";
+$route['logoff'] = "main/logoff";
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
