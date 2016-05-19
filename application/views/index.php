@@ -12,6 +12,13 @@
             .four h5 {
                 text-align: right;
             }
+            a {
+                text-decoration: none;
+                color: black;
+            }
+            a:hover {
+                color: rgba(78, 78, 78, 0.85);
+            }
         </style>
     </head>
     <body>
@@ -53,7 +60,7 @@
                         <?php //echo $user['id'].": ".$user['username']; ?>
                         <br />
                         <span><?= $user['id']; ?></span>
-                        <a href="/logoff" style="float: right; vertical-align:top">Log Off</a>
+                        <a class="logoff" href="/logoff" style="float: right; vertical-align:top">Log Off</a>
                         <br /><br /><h1 style="font-size:3em;vertical-align:middle;text-align:center;color:rgba(61, 61, 61, 0.65)"><?= $user['username']; ?></h1>
                     <?php endif; ?>
                 <!-- End Login User -->
@@ -97,7 +104,7 @@
                     <form action="/addPins" method="POST">
                         <div class="row">
                             <div class="twelve columns">
-                                <h3><a href="54.153.97.181/json/pins" target="_BLANK">New Pin</a></h3>
+                                <h3>New Pin</h3>
                             </div>
                         </div>
                         <div class="row">
@@ -218,7 +225,7 @@
 
             <div class="row">
                 <div class="twelve columns">
-                        <h1 style="text-align: center">USERS</h1>
+                        <h1 style="text-align: center"><a href="/json/users" target="_BLANK">USERS</a></h1>
                     <?php if ($this->session->userdata('currUser')): ?>
                         <?php foreach ($users as $key => $value) { ?>
                             <?php if ($value['id'] != $this->session->userdata('currUser')[0]['id']): ?>
@@ -242,7 +249,7 @@
             </div>
             <div class="row">
                 <div class="six columns">
-                    <h1>TRIPS</h1>
+                    <h1><a href="/json/trips" target="_BLANK">TRIPS</a></h1>
                     <?php foreach($trips as $key => $value):?>
                         <span style="font-weight: bold">ID:</span> <span style="float:right"><?php echo $value['id']; ?></span><br />
                         <span style="font-weight: bold">Name:</span> <span style="float:right"><?php echo $value['name']; ?></span><br />
@@ -259,7 +266,7 @@
                     <?php endforeach; ?>
                 </div>
                 <div class="six columns">
-                    <h1>Pins</h1>
+                    <h1><a href="/json/pins" target="_BLANK">Pins</a></h1>
                     <?php foreach($pins as $key => $value):?>
                         <span style="font-weight: bold">ID:</span> <span style="float:right"><?php echo $value['id']; ?></span><br />
                         <span style="font-weight: bold">Coordinates:</span> <span style="float:right"><?php echo $value['coordinate']; ?></span><br />

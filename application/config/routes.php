@@ -53,6 +53,7 @@ $route['json/trips'] = "main/allTrips";             //All Trips in JSON format
 $route['json/trip/(:num)'] = "main/tripByTId/$1";   //Gets trip by trip id
 $route['json/trip'] = "main/allTrips";              //All Trips in JSON format
 
+$route['json/pins'] = "main/allPins";               //Gets all pins as Json
 $route['json/pins/(:any)'] = "main/pinsByName/$1";  //Gets all pins of username
 
 

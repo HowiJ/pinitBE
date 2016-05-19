@@ -240,6 +240,12 @@ class Main extends CI_Controller {
 
 		echo $encode_trips;
 	}
+	public function allPins() {
+		$pins = $this->Map->getAllPins();
+		$encode_pins = json_encode(array("pins"=> $pins));
+
+		echo $encode_pins;
+	}
 	public function tripById($id) {
 		$tripsArray = $this->Map->getTripByUserId($id);
 		$encode_trips = json_encode(array("trips" => $tripsArray));
