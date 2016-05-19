@@ -75,7 +75,7 @@ class Map extends CI_Model {
     //////////////////////////////////////////////////////////////
     //NOT ITEMS
     public function notPins($id) {
-        $query = "SELECT * FROM pins JOIN users ON user_id = users.id WHERE users.username NOT IN (?);";
+        $query = "SELECT pins.id as pinId, coordinate, user_id, note, username FROM pins JOIN users ON user_id = users.id WHERE users.username NOT IN (?);";
 
         $insertion = array($id);
 
