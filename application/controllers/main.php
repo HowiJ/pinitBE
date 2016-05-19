@@ -161,20 +161,36 @@ class Main extends CI_Controller {
 
 		redirect('/');
 	}
-	public function getTripByUserId($id) {
-		$tripsArray = $this->Map->getTripByUserId($id);
+	// public function getTripByUserId($id) {
+	// 	$tripsArray = $this->Map->getTripByUserId($id);
+	//
+	// 	var_dump($tripsArray);
+	//
+	// 	//Will error until var_dump above is gone.
+	// 	redirect('/');
+	// }
+	// public function getTripByUserName($name) {
+	// 	$tripsArray = $this->Map->getTripByUserName($name);
+	//
+	// 	var_dump($tripsArray);
+	//
+	// 	//Will error until var_dump above is gone.
+	// 	redirect('/');
+	// }
+	//////////////////////////////////////////////////////////////
 
-		var_dump($tripsArray);
 
-		//Will error until var_dump above is gone.
-		redirect('/');
-	}
-	public function getTripByUserName($name) {
-		$tripsArray = $this->Map->getTripByUserName($name);
+	//////////////////////////////////////////////////////////////
+	//DELETING FROM DATABASE
+	public function deleteTripById() {
+		$idArr = $this->input->post();
+		$id;
+		foreach ($idArr as $key => $value) {
+			$id = $value;
+		}
 
-		var_dump($tripsArray);
+		$this->Map->deleteTripById($id);
 
-		//Will error until var_dump above is gone.
 		redirect('/');
 	}
 	//////////////////////////////////////////////////////////////

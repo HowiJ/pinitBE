@@ -63,6 +63,8 @@ $route['addTrips'] = "main/addTripsByUserName";       //Add trips to the databas
 //Check Logic
 $route['checkLogin'] = "main/checkLogin";   //Checks the username to database
 
+//Delete trip
+$route['deleteTrip'] = "main/deleteTripById";
 
 //logoff
 $route['logoff'] = "main/logoff";

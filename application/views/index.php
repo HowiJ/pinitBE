@@ -173,13 +173,16 @@
                 <div class="six columns">
                     <h1>TRIPS</h1>
                     <?php foreach($trips as $key => $value):?>
-                        <span>ID:</span> <span style="float:right"><?php echo $value['id']; ?></span><br />
-                        <span>Name:</span> <span style="float:right"><?php echo $value['name']; ?></span><br />
-                        <span>Distance:</span> <span style="float:right"><?php echo $value['distance']; ?></span><br />
-                        <span>Duration:</span> <span style="float:right"><?php echo $value['duration']; ?></span><br />
-                        <span>Trip:</span> <br /><span style=""><?php echo $value['trip']; ?></span>
+                        <span style="font-weight: bold">ID:</span> <span style="float:right"><?php echo $value['id']; ?></span><br />
+                        <span style="font-weight: bold">Name:</span> <span style="float:right"><?php echo $value['name']; ?></span><br />
+                        <span style="font-weight: bold">Distance:</span> <span style="float:right"><?php echo $value['distance']; ?></span><br />
+                        <span style="font-weight: bold">Duration:</span> <span style="float:right"><?php echo $value['duration']; ?></span><br />
+                        <span style="font-weight: bold">Trip:</span> <br /><span style=""><?php echo $value['trip']; ?></span>
                         <br /><br />
-                        ______________________________________________<br />
+                        <form action="/deleteTrip" method="post">
+                            <input type="hidden" name="idk" value="<?php echo $value['id']; ?>">
+                            <input type="submit" value="Delete">
+                        </form>
                     <?php endforeach; ?>
                 </div>
             </div>

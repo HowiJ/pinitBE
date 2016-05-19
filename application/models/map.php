@@ -72,5 +72,17 @@ class Map extends CI_Model {
         $this->db->query($query, $insertion);
     }
     //////////////////////////////////////////////////////////////
+
+
+
+    //////////////////////////////////////////////////////////////
+    //ADDING DATA TO DATABASE
+    public function deleteTripById($tripId) {
+        $query = "DELETE FROM `pinit`.`trips` WHERE `id`=?;";
+        $insertion = array($tripId);
+
+        $this->db->query($query, $insertion);
+    }
+    //////////////////////////////////////////////////////////////
 }
 ?>
