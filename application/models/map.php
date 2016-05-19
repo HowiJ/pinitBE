@@ -76,10 +76,16 @@ class Map extends CI_Model {
 
 
     //////////////////////////////////////////////////////////////
-    //ADDING DATA TO DATABASE
+    //DELETING DATA TO DATABASE
     public function deleteTripById($tripId) {
         $query = "DELETE FROM `pinit`.`trips` WHERE `id`=?;";
         $insertion = array($tripId);
+
+        $this->db->query($query, $insertion);
+    }
+    public function deleteUserById($userId) {
+        $query = "DELETE FROM `pinit`.`users` WHERE `id`=?;";
+        $insertion = array($userId);
 
         $this->db->query($query, $insertion);
     }

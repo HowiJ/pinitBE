@@ -163,11 +163,23 @@
                 <div class="six columns">
                         <h1>USERS</h1>
                     <?php if ($this->session->userdata('currUser')): ?>
-                        <?php
-                            foreach ($users as $key => $value) {
-                                echo $value['id'] . ": " . $value['username'] . "<br />";
-                            }
-                        ?>
+                        <?php foreach ($users as $key => $value) { ?>
+                            <?php if ($value['id'] != $this->session->userdata('currUser')[0]['id']): ?>
+                                <div class="row" style="border-bottom: 1px solid black; margin-bottom: 1em;">
+                                    <div class="six columns">
+                                        <span style="float:left; width: auto">
+                                            <?= $value['id'] ?>: <?= $value['username'] ?><br />
+                                        </span>
+                                    </div>
+                                    <div class="six columns">
+                                        <form action="/deleteUser" method="post">
+                                            <input type="hidden" name="name" value="<?= $value['id']; ?>">
+                                            <input type="submit" value="Delete User" style="width: auto; float: right">
+                                        </form>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        <?php } ?>
                     <?php endif; ?>
                 </div>
                 <div class="six columns">

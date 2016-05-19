@@ -193,6 +193,17 @@ class Main extends CI_Controller {
 
 		redirect('/');
 	}
+	public function deleteUserById() {
+		$idArr = $this->input->post();
+		$id;
+		foreach ($idArr as $key => $value) {
+			$id = $value;
+		}
+
+		$this->Map->deleteUserById($id);
+
+		redirect('/');
+	}
 	//////////////////////////////////////////////////////////////
 
 
