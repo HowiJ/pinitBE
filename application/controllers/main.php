@@ -147,7 +147,7 @@ class Main extends CI_Controller {
 		// var_dump(formattedLocation($arr[1]));
 		$arr[1] = formattedLocation($arr[1]);
 
-		this.checkLoginByName($arr[count($arr)-1]);
+		checkLoginByName($arr[count($arr)-1]);
 		$uId = $this->Map->getUserIdByName($arr[count($arr)-1]);
 		$userId;
 		foreach ($uId as $key => $value) {
