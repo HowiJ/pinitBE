@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title></title>
+        <title>Pin It</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">
 
         <style media="screen">
@@ -252,7 +252,9 @@
                         <br /><br />
                         <form action="/deleteTrip" method="post">
                             <input type="hidden" name="idk" value="<?php echo $value['id']; ?>">
-                            <input type="submit" value="Delete Trip">
+                            <?php if ($this->session->userdata('currUser')): ?>
+                                <input type="submit" value="Delete Trip">
+                            <?php endif; ?>
                         </form>
                     <?php endforeach; ?>
                 </div>
@@ -265,7 +267,9 @@
                         <br /><br />
                         <form action="/deletePin" method="post">
                             <input type="hidden" name="idk" value="<?php echo $value['id']; ?>">
-                            <input type="submit" value="Delete Pin">
+                            <?php if ($this->session->userdata('currUser')): ?>
+                                <input type="submit" value="Delete Pin">
+                            <?php endif; ?>
                         </form>
                     <?php endforeach; ?>
                 </div>
