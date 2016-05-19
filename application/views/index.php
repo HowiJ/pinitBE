@@ -140,7 +140,8 @@
                                 </div>
                                 <div class="eight columns">
                                     <?php if ($this->session->userdata('currUser')) : ?>
-                                        <?php $username = $this->session->userdata('currUser'); ?>
+                                    <?php $username = $this->session->userdata('currUser'); ?>
+                                        <input type="hidden" name="userId" value="<?= $username[0]['id']; ?>">
                                         <?php echo $username[0]['username']; ?>
                                     <?php endif; ?>
                                 </div>

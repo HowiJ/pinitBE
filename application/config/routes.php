@@ -53,6 +53,8 @@ $route['json/trips'] = "main/allTrips";     //All Trips in JSON format
 $route['json/trip/(:num)'] = "main/tripByTId/$1";   //Gets trip by trip id
 $route['json/trip'] = "main/allTrips";      //All Trips in JSON format
 
+$route['json/pins/(:any)'] = "main/pinsByName/$1";
+
 
 //Database Manipulation
 $route['addUser'] = "main/addUser";         //Add users to the database

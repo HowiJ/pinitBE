@@ -149,34 +149,20 @@ class Main extends CI_Controller {
 
 		// checkLoginByName($arr[count($arr)-1]);
 		$uId = $this->Map->getUserIdByName($arr[count($arr)-1]);
-		$userId;
+		$userId = 0;
 		foreach ($uId as $key => $value) {
 			$userId = $value;
 		}
 		// var_dump($userId);
-		$arr[4] = $userId;
+		if ($userId):
+			$arr[4] = $userId;
+		endif;
 		// echo json_encode("YES");
 		// var_dump($arr);
 		$this->Map->addTrips($arr);
 
 		redirect('/');
 	}
-	// public function getTripByUserId($id) {
-	// 	$tripsArray = $this->Map->getTripByUserId($id);
-	//
-	// 	var_dump($tripsArray);
-	//
-	// 	//Will error until var_dump above is gone.
-	// 	redirect('/');
-	// }
-	// public function getTripByUserName($name) {
-	// 	$tripsArray = $this->Map->getTripByUserName($name);
-	//
-	// 	var_dump($tripsArray);
-	//
-	// 	//Will error until var_dump above is gone.
-	// 	redirect('/');
-	// }
 	//////////////////////////////////////////////////////////////
 
 
@@ -240,7 +226,15 @@ class Main extends CI_Controller {
 
 		echo $encode_trips;
 	}
+	public function pinsByName($name) {
+		$pinsArray = $this->Map->getPinsByName($name);
+		$encode_pins = json_encode(array("pins"=>$pinsArray));
+
+		echo $encode_pins;
+	}
 	//////////////////////////////////////////////////////////////
+
+
 
 
 

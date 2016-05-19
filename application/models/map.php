@@ -50,6 +50,18 @@ class Map extends CI_Model {
 
         return $this->db->query($query, $insertion)->row_array();
     }
+
+    public function getPinsByName($name) {
+        $query = "SELECT
+        pins.id as pinId, user_id as userId,
+        users.username, coordinate, note
+        FROM pins JOIN users ON pins.user_id = users.id
+        WHERE users.username = ?;";
+
+        $insertion = array($name);
+
+        return $this->db->query($query, $insertion)->result_array();
+    }
     //////////////////////////////////////////////////////////////
 
 
