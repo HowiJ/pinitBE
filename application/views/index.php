@@ -17,13 +17,14 @@
     <body>
         <div class="container">
         <?php
-        $test = "CLLocationCoordinate2D(latitude: 123.456789, longitude: -123.987.00234)?CLLocationCoordinate2D(latitude: 37.377339962324889, longitude: -121.91228729665251)?CLLocationCoordinate2D(latitude: 37.377369638020127, longitude: -121.91232907647191)?CLLocationCoordinate2D(latitude: 37.377328798296034, longitude: -121.91226145129352)?CLLocationCoordinate2D(latitude: 37.377322179601009, longitude: -121.91235503395197)";
-        var_dump($test);
+        // $test = "CLLocationCoordinate2D(latitude: 123.456789, longitude: -123.987.00234)?CLLocationCoordinate2D(latitude: 37.377339962324889, longitude: -121.91228729665251)?CLLocationCoordinate2D(latitude: 37.377369638020127, longitude: -121.91232907647191)?CLLocationCoordinate2D(latitude: 37.377328798296034, longitude: -121.91226145129352)?CLLocationCoordinate2D(latitude: 37.377322179601009, longitude: -121.91235503395197)";
+        // var_dump($test);
         ?>
 
         <div class="row">
             <div class="six columns">
                 <!-- ADD USER -->
+                <?php if ($this->session->userdata('currUser')): ?>
                     <form action="/addUser" method="POST">
                         <div class="row">
                             <div class="twelve columns">
@@ -47,7 +48,8 @@
                         </div>
                     </form>
                 <!-- End Add User -->
-                <!-- ADD USER -->
+            <?php endif; ?>
+                <!-- LOGIN USER -->
                     <?php if (!$this->session->userdata('currUser')): ?>
                         <form action="/checkLogin" method="POST">
                             <div class="row">
@@ -76,11 +78,12 @@
                         <?php var_dump($this->session->userdata('currUser')); ?>
                         <a href="/logoff">Log Off</a>
                     <?php endif; ?>
-                <!-- End Add User -->
+                <!-- End Login User -->
             </div>
 
             <div class="six columns">
                 <!-- ADD TRIP -->
+                <?php if ($this->session->userdata('currUser')): ?>
                     <form action="/addTrips" method="POST">
                         <div class="row">
                             <div class="twelve columns">
@@ -133,7 +136,10 @@
                                     <h5>User Name: </h5>
                                 </div>
                                 <div class="eight columns">
-                                    <input type="number" name="tripUser">
+                                    <?php if ($this->session->userdata('currUser')) : ?>
+                                        <?php $username = $this->session->userdata('currUser'); ?>
+                                        <?php echo $username[0]['username']; ?>
+                                    <?php endif; ?>
                                 </div>
                             </label>
                         </div>
@@ -144,6 +150,7 @@
                             </div>
                         </div>
                     </form>
+                <?php endif; ?>
                 <!-- END ADD TRIP -->
             </div>
         </div>
@@ -151,8 +158,14 @@
 
             <div class="row">
                 <div class="six columns">
-                    <h1>USERS</h1>
-                    <?php var_dump($users); ?>
+                        <h1>USERS</h1>
+                    <?php if ($this->session->userdata('currUser')): ?>
+                        <?php
+                            foreach ($users as $key => $value) {
+                                echo $value['id'] . ": " . $value['username'] . "<br />";
+                            }
+                        ?>
+                    <?php endif; ?>
                 </div>
                 <div class="six columns">
                     <h1>TRIPS</h1>

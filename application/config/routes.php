@@ -57,7 +57,7 @@ $route['json/trip'] = "main/allTrips";      //All Trips in JSON format
 //Database Manipulation
 $route['addUser'] = "main/addUser";         //Add users to the database
 $route['addTrips'] = "main/addTripsByUserName";       //Add trips to the database
-$route['jank/addTrips/(:any)/(:any)/(:any)/(:any)/(:num)'] = "main/jankAddTrips/$1/$2/$3/$4/$5";       //Add trips to the database
+// $route['jank/addTrips/(:any)/(:any)/(:any)/(:any)/(:num)'] = "main/jankAddTrips/$1/$2/$3/$4/$5";       //Add trips to the database
 
 
 //Check Logic
