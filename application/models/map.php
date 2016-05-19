@@ -26,7 +26,7 @@ class Map extends CI_Model {
         return $this->db->query($query, $insertion)->result_array();
     }
     public function getTripByUserName($name) {
-        $query = "SELECT * FROM trips JOIN users
+        $query = "SELECT trips.id as tripId, trips.name, trips.trip, distance, duration, user_id, created_at, username FROM trips JOIN users
             ON trips.user_id = users.id WHERE users.username = ?";
         $insertion = array($name);
 

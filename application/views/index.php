@@ -75,7 +75,7 @@
                         </form>
                         <?php endif; ?>
                     <?php if ($this->session->userdata('currUser')) : ?>
-                        <?php 
+                        <?php
                             $user = $this->session->userdata('currUser')[0];
                             echo $user['id'].": ".$user['username'];
                         ?>
@@ -172,7 +172,15 @@
                 </div>
                 <div class="six columns">
                     <h1>TRIPS</h1>
-                    <?php var_dump($trips); ?>
+                    <?php foreach($trips as $key => $value):?>
+                        <span>ID:</span> <span style="float:right"><?php echo $value['id']; ?></span><br />
+                        <span>Name:</span> <span style="float:right"><?php echo $value['name']; ?></span><br />
+                        <span>Distance:</span> <span style="float:right"><?php echo $value['distance']; ?></span><br />
+                        <span>Duration:</span> <span style="float:right"><?php echo $value['duration']; ?></span><br />
+                        <span>Trip:</span> <br /><span style=""><?php echo $value['trip']; ?></span>
+                        <br /><br />
+                        ______________________________________________<br />
+                    <?php endforeach; ?>
                 </div>
             </div>
 

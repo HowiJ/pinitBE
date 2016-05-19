@@ -89,6 +89,24 @@ class Main extends CI_Controller {
 			redirect('/');
 		}
 	}
+	public function checkLoginByName($username) {
+
+		$ret = $this->Map->checkUsersByName($username);
+		// var_dump($ret);
+
+		if (count($ret) == 1) {
+			// var_dump("Found One");
+			$this->session->set_userdata('currUser', $ret);
+			redirect('/');
+		} else if (count($ret) == 0){
+			// var_dump("No Users by that name");
+			$this->Map->addUser($username);
+			redirect('/checkLogin');
+		} else {
+			// var_dump("Wtf there's two...");
+			redirect('/');
+		}
+	}
 
 
 	//////////////////////////////////////////////////////////////
@@ -129,6 +147,7 @@ class Main extends CI_Controller {
 		// var_dump(formattedLocation($arr[1]));
 		$arr[1] = formattedLocation($arr[1]);
 
+		this.checkLoginByName($arr[count($arr)-1]);
 		$uId = $this->Map->getUserIdByName($arr[count($arr)-1]);
 		$userId;
 		foreach ($uId as $key => $value) {
