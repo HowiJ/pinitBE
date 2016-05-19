@@ -60,11 +60,13 @@ class Main extends CI_Controller {
 	{
 		$users = $this->Map->getAllUsers();
 		$trips = $this->Map->getAllTrips();
+		$pins = $this->Map->getAllPins();
 
 		$this->load->view('index',
 		array(
 			"users" => $users,
-			"trips" => $trips
+			"trips" => $trips,
+			"pins" 	=> $pins
 		));
 	}
 

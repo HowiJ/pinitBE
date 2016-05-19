@@ -12,6 +12,11 @@ class Map extends CI_Model {
 
         return $this->db->query($query)->result_array();
     }
+    public function getAllPins() {
+        $query = "SELECT * FROM pins";
+
+        return $this->db->query($query)->result_array();
+    }
     //////////////////////////////////////////////////////////////
 
 
