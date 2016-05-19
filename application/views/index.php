@@ -75,8 +75,11 @@
                         </form>
                         <?php endif; ?>
                     <?php if ($this->session->userdata('currUser')) : ?>
-                        <?php var_dump($this->session->userdata('currUser')); ?>
-                        <a href="/logoff">Log Off</a>
+                        <?php 
+                            $user = $this->session->userdata('currUser')[0];
+                            echo $user['id'].": ".$user['username'];
+                        ?>
+                        <a href="/logoff" style="float: right;">Log Off</a>
                     <?php endif; ?>
                 <!-- End Login User -->
             </div>
