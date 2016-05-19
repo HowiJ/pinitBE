@@ -109,6 +109,28 @@ class Main extends CI_Controller {
 			redirect('/');
 		}
 	}
+	//////////////////////////////////////////////////////////////
+
+
+
+
+	//////////////////////////////////////////////////////////////
+	//NOTITEMS
+	public function notPins($name) {
+		$pins = $this->Map->notPins($name);
+		$encode_pins = json_encode(array("pins" => $pins));
+
+		echo $encode_pins;
+	}
+	public function notTrips($name) {
+		$trips = $this->Map->notTrips($name);
+		$encode_trips = json_encode(array("trips" => $trips));
+
+		echo $encode_trips;
+	}
+	//////////////////////////////////////////////////////////////
+
+
 
 
 	//////////////////////////////////////////////////////////////
