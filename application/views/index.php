@@ -97,7 +97,7 @@
                     <form action="/addPins" method="POST">
                         <div class="row">
                             <div class="twelve columns">
-                                <h3>New Pin</h3>
+                                <h3><a href="54.153.97.181/json/pins" target="_BLANK">New Pin</a></h3>
                             </div>
                         </div>
                         <div class="row">

@@ -172,6 +172,7 @@ class Main extends CI_Controller {
 		foreach ($pins as $key => $value) {
 			array_push($arr, $value);
 		}
+		$arr[0] = formattedLocation($arr[0]);
 		$uId = $this->Map->getUserIdByName($arr[1]);	//Username to be at index 1
 		$userId = 4;
 		foreach($uId as $key => $value) {
