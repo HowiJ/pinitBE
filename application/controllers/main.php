@@ -149,7 +149,7 @@ class Main extends CI_Controller {
 
 		// checkLoginByName($arr[count($arr)-1]);
 		$uId = $this->Map->getUserIdByName($arr[count($arr)-1]);
-		$userId = 0;
+		$userId = 1;
 		foreach ($uId as $key => $value) {
 			$userId = $value;
 		}
@@ -160,6 +160,24 @@ class Main extends CI_Controller {
 		// echo json_encode("YES");
 		// var_dump($arr);
 		$this->Map->addTrips($arr);
+
+		redirect('/');
+	}
+	public function addPinsByUserName() {
+		$pins = $this->input->post();
+
+		$arr = array();
+		foreach ($pins as $key => $value) {
+			array_push($arr, $value);
+		}
+		$uId = $this->Map->getUserIdByName($arr[1]);	//Username to be at index 1
+		$userId = 4;
+		foreach($uId as $key => $value) {
+			$userId = $value;
+		}
+		$arr[1] = $userId;
+
+		$this->Map->addPins($arr);
 
 		redirect('/');
 	}
@@ -187,6 +205,17 @@ class Main extends CI_Controller {
 		}
 
 		$this->Map->deleteUserById($id);
+
+		redirect('/');
+	}
+	public function deletePinById() {
+		$idArr = $this->input->post();
+		$id;
+		foreach($idArr as $key => $value) {
+			$id = $value;
+		}
+
+		$this->Map->deletePinById($id);
 
 		redirect('/');
 	}

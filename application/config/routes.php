@@ -44,31 +44,31 @@ $route['404_override'] = '';
 
 
 //JSON Data
-$route['json/users'] = "main/allUsers";     //All Users in JSON format
+$route['json/users'] = "main/allUsers";             //All Users in JSON format
 
-// $route['json/trips/(:num)'] = "main/tripById/$1";   //Trips By User ID
 $route['json/trips/(:any)'] = "main/tripByName/$1"; //Trips By User name
-$route['json/trips'] = "main/allTrips";     //All Trips in JSON format
+$route['json/trips/(:num)'] = "main/tripById/$1";   //Trips By User ID
+$route['json/trips'] = "main/allTrips";             //All Trips in JSON format
 
 $route['json/trip/(:num)'] = "main/tripByTId/$1";   //Gets trip by trip id
-$route['json/trip'] = "main/allTrips";      //All Trips in JSON format
+$route['json/trip'] = "main/allTrips";              //All Trips in JSON format
 
-$route['json/pins/(:any)'] = "main/pinsByName/$1";
+$route['json/pins/(:any)'] = "main/pinsByName/$1";  //Gets all pins of username
 
 
 //Database Manipulation
-$route['addUser'] = "main/addUser";         //Add users to the database
-$route['addTrips'] = "main/addTripsByUserName";       //Add trips to the database
-// $route['jank/addTrips/(:any)/(:any)/(:any)/(:any)/(:num)'] = "main/jankAddTrips/$1/$2/$3/$4/$5";       //Add trips to the database
+//Adding
+$route['addUser'] = "main/addUser";                 //Add users to the database
+$route['addTrips'] = "main/addTripsByUserName";     //Add trips to the database
+$route['addPins'] = "main/addPinsByUserName";       //Add a pin via username
+//Delete
+$route['deleteTrip'] = "main/deleteTripById";       //Delete trip by trip id
+$route['deleteUser'] = "main/deleteUserById";       //Delete user by user id
+$route['deletePin'] = "main/deletePinById";         //Delete pin by pin id
 
 
 //Check Logic
 $route['checkLogin'] = "main/checkLogin";   //Checks the username to database
-
-//Delete
-$route['deleteTrip'] = "main/deleteTripById";
-$route['deleteUser'] = "main/deleteUserById";
-
 //logoff
 $route['logoff'] = "main/logoff";
 

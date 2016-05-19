@@ -83,6 +83,13 @@ class Map extends CI_Model {
         //[[123,123],[124,124],[125,125]]
         $this->db->query($query, $insertion);
     }
+    public function addPins($pins) {
+        $query = "INSERT INTO `pinit`.`pins` (`coordinate`, `user_id`, `note`)
+        VALUES (?, ?, ?);";
+        $insertion = $pins;
+
+        $this->db->query($query, $insertion);
+    }
     //////////////////////////////////////////////////////////////
 
 
@@ -98,6 +105,12 @@ class Map extends CI_Model {
     public function deleteUserById($userId) {
         $query = "DELETE FROM `pinit`.`users` WHERE `id`=?;";
         $insertion = array($userId);
+
+        $this->db->query($query, $insertion);
+    }
+    public function deletePinById($pinId) {
+        $query = "DELETE FROM `pinit`.`pins` WHERE `id`=?;";
+        $insertion = array($pinId);
 
         $this->db->query($query, $insertion);
     }
