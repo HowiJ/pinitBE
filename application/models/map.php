@@ -82,13 +82,12 @@ class Map extends CI_Model {
         return $this->db->query($query, $insertion)->result_array();
     }
     public function notTrips($id) {
-        $query = "SELECT * FROM trips JOIN users ON user_id = users.id WHERE users.username NOT IN (?);";
+        $query = "SELECT trips.id as tripId, trips.name, trips.trip, trips.distance, trips.duration, trips.user_id, trips.created_at, users.username FROM trips JOIN users ON user_id = users.id WHERE users.username NOT IN (?);";
 
         $insertion = array($id);
 
         return $this->db->query($query, $insertion)->result_array();
     }
-
     //////////////////////////////////////////////////////////////
 
 
