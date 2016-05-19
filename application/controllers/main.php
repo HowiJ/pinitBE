@@ -124,6 +124,7 @@ class Main extends CI_Controller {
 	}
 	public function notTrips($name) {
 		$trips = $this->Map->notTrips($name);
+		// var_dump($name);
 		$encode_trips = json_encode(array("trips" => $trips));
 
 		echo $encode_trips;

@@ -57,7 +57,7 @@ $route['json/pins'] = "main/allPins";               //Gets all pins as Json
 $route['json/pins/(:any)'] = "main/pinsByName/$1";  //Gets all pins of username
 
 $route['json/notPins/(:any)'] = "main/notPins/$1";            //Gets all pins not user
-$route['json/notTrips/(:any)'] = "main/notTrips/$1;";         //Gets all trips not user
+$route['json/notTrips/(:any)'] = "main/notTrips/$1";         //Gets all trips not user
 
 
 //Database Manipulation
